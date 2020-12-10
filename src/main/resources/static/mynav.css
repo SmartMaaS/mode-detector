@@ -1,0 +1,103 @@
+/*
+https://www.w3schools.com/howto/howto_js_topnav.asp
+*/
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  /*background-color: #333;*/
+  background-color: #ccc;
+}
+
+.topnav div {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  background-color: #bbb;
+  color: #339;
+  display: inline;
+}
+
+.topnav a {
+  float: left;
+  /*color: #f2f2f2;*/
+  color: #101010;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  /*background-color: #ddd;*/
+  background-color: #aaa;
+  color: black;
+}
+
+.topnav a.active {
+  /*background-color: #4C50AF;*/
+  background-color: #8C90FF;
+  color: white;
+}
+
+.tdv {
+  /*writing-mode: sideways-rl;*/
+  writing-mode: vertical-lr;
+  /*text-orientation: upright;*/
+  text-align: right;
+  vertical-align: middle;
+}
+
+.tdg {
+  background-color: #ccff99;
+}
+
+.tdr {
+  background-color: #ffcccc;
+}
+
+.tdh {
+  background-color: #cccccc;
+}
+
+.tds {
+	max-width: 60px;
+	word-wrap: break-word;
+	font-size: x-small;
+}
+
+td {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+   border: 1px solid #ddd;
+}
+
+th, td {
+   padding: 5px;
+}
+/*https://brandcolors.net/b/trello*/
+.BICYCLE { background-color: #ff78cb; }
+.BUS { background-color: #70b500; }
+.CAR { background-color: #0079bf; }
+.TRAIN { background-color: #eb5a46; }
+.WALK { background-color: #c4c9cc; }
+/*.UNDEF { background-color: #333333; }*/
+
+
+
+/*div {
+  vertical-align: center;
+  *//*align-content: center;*//*
+}*/

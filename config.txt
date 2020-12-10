@@ -1,0 +1,12 @@
+
+# int
+startJetty = true
+port = 12340
+
+#python-url = http://0.0.0.0:12349/
+
+# space separated
+maps = \
+  input/berlin-csv-0814/berlin-%s-%s-0814.csv.gz \
+  input/saarland-csv-0814/saarland-%s-%s-0814.csv.gz
+

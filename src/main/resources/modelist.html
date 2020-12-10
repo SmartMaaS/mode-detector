@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/mynav.css">
+    <link rel="stylesheet" type="text/css" href="/static/notifications.css"></head>
+<body>
+
+<h1>t02 mode detector</h1>
+
+<h2 id="head-existing">Existing models</h2>
+
+<div id="model-list"></div>
+
+<h2 id="head-create">Create model</h2>
+
+<!--<div id="gps"></div>-->
+
+<form id='form' action="">
+    <table>
+        <tr>
+            <td id='ftd' style="text-align:center;">
+                <label for="field">Fields:</label>
+                <br/>
+                <select name="field" id="field" size="35" multiple></select>
+                <br/>
+            </td>
+            <td id='mtd' style="text-align:center;">
+                <label for="method">Methods:</label>
+                <br/>
+                <select name="method" id="method" size="35" multiple>
+                    <option value="0">0</option>
+                </select>
+                <br/>
+            </td>
+            <td id='ttd' style="text-align:center;">
+                <label for="track">Train tracks:</label>
+                <br/>
+                <select name="track" id="track" size="35" multiple></select>
+                <br/>
+            </td>
+            <td id='ttd2' style="text-align:center;">
+                <label for="param2">Validate tracks (can be empty):</label>
+                <br/>
+                <select name="param2" id="param2" size="35" multiple></select>
+                <br/>
+            </td>
+
+            <td id='form-buttons' style='vertical-align=top;'>
+                <input id='form-page' type="hidden" name="page" value="modelist">
+                <input id='form-request' type="hidden" name="request" value="create">
+
+                <input id='form-submit' type="submit" value="Create"><br/>
+            </td>
+
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

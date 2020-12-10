@@ -1,0 +1,12 @@
+.idea
+.gradle
+build
+out
+
+samples
+save
+result
+mm-html
+input
+
+tmp

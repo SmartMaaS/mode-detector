@@ -1,0 +1,839 @@
+#
+# https://spec.openapis.org/oas/v3.0.3#response-object
+#
+# https://editor.swagger.io/
+#
+openapi: 3.0.1
+info:
+  title: Mode detector server
+  description: Mode detector server
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: "1.5"
+servers:
+- url: http://127.0.0.1:12340/
+tags:
+- name: post
+  description: Basic JSON POST request
+- name: j2
+  description: Simple JSON API
+- name: web
+  description: Web Control Interface
+paths:
+  /post/MAP_TRANSPORT:
+    post:
+      tags:
+      - post
+      summary: MAP_TRANSPORT request
+      operationId: MAP_TRANSPORT
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - lat
+              - lon
+              - request
+              properties:
+                request:
+                  type: string
+                  default: MAP_TRANSPORT
+                lat:
+                  type: number
+                  description: latitude
+                  format: double
+                  default: 52.5
+                lon:
+                  type: number
+                  description: longitude
+                  format: double
+                  default: 13.4
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: object
+                    properties:
+                      gps_latitude:
+                        type: number
+                        format: double
+                      gps_longitude:
+                        type: number
+                        format: double
+                      bus:
+                        type: object
+                        properties:
+                          distanceToBusStop:
+                            type: number
+                            format: double
+                          distanceToBusLine:
+                            type: number
+                            format: double
+                          busRouteString:
+                            type: string
+                            default: ""
+                          nearestBusStop:
+                            type: array
+                            items:
+                              type: number
+                          nearestPointOnBusLine:
+                            type: array
+                            items:
+                              type: number
+                      train:
+                        type: object
+                        properties:
+                          distanceToTrainStation:
+                            type: number
+                            format: double
+                          distanceToTrainLine:
+                            type: number
+                            format: double
+                          nearestTrainStation:
+                            type: array
+                            items:
+                              type: number
+                          nearestPointOnRailwayTrack:
+                            type: array
+                            items:
+                              type: number
+  /post/BACKUP:
+    post:
+      tags:
+      - post
+      summary: BACKUP request
+      operationId: BACKUP
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - request
+              properties:
+                request:
+                  type: string
+                  default: BACKUP
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+                    default: ""
+  /post/RESTORE:
+    post:
+      tags:
+      - post
+      summary: RESTORE request
+      operationId: RESTORE
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - request
+              properties:
+                request:
+                  type: string
+                  default: RESTORE
+                param:
+                  type: string
+                  description: Path where the backup is to be found.
+                  default: /dev/shm/
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+                    default: ""
+  /post/TRACKS_LIST:
+    post:
+      tags:
+      - post
+      summary: TRACKS_LIST request
+      operationId: TRACKS_LIST
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - request
+              properties:
+                request:
+                  type: string
+                  default: TRACKS_LIST
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        modes:
+                          type: object
+                          properties:
+                            BICYCLE:
+                              type: integer
+                            BUS:
+                              type: integer
+                            CAR:
+                              type: integer
+                            TRAIN:
+                              type: integer
+                            WALK:
+                              type: integer
+                        name:
+                          type: string
+                        id:
+                          type: integer
+#
+#
+#
+  /post/TRACKS_REMOVE:
+    post:
+      tags:
+      - post
+      summary: TRACKS_REMOVE request
+      operationId: TRACKS_REMOVE
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+              - request
+              - track
+              properties:
+                request:
+                  type: string
+                  default: TRACKS_REMOVE
+                track:
+                  type: array
+                  description: track ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+                    default: ""
+#
+#
+#
+  /post/TRACKS_ADD:
+    post:
+      tags:
+      - post
+      summary: TRACKS_ADD request
+      operationId: TRACKS_ADD
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+              - file
+              - request
+              properties:
+                request:
+                  type: string
+                  default: TRACKS_ADD
+                file:
+#                  type: string
+#                  format: binary
+#                  type: array
+                  description: 'track files: gpx, json...'
+                  items:
+#                    'image/jpeg':
+#                      schema:
+#                        type: string
+#                        format: binary
+#                    'image/png':
+#                      schema:
+#                        type: string
+#                        format: binary
+                    type: string
+                    format: binary
+            encoding:
+              file:
+                contentType: application/gpx, application/json
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                    - result
+                    - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: object
+                    properties:
+                      regected:
+                        type: array
+                        items:
+                          type: string
+#
+#
+#
+  /post/TRACKS_DATA:
+    post:
+      tags:
+        - post
+      summary: TRACKS_DATA request
+      operationId: TRACKS_DATA
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - request
+                - track
+                - field
+              properties:
+                request:
+                  type: string
+                  default: TRACKS_DATA
+                track:
+                  type: array
+                  description: track ids, e.g. 12
+                  items:
+                    type: integer
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                      - result
+                      - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: object
+                    properties:
+                      {trackId}:
+                        type: object
+                        properties:
+                          {fieldName}:
+                            type: array
+                            items:
+                              type: '*'
+#
+#
+#
+  /post/TRACK_ARFF:
+    post:
+      tags:
+        - post
+      summary: TRACK_ARFF request
+      operationId: TRACK_ARFF
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - request
+                - track
+                - field
+              properties:
+                request:
+                  type: string
+                  default: TRACK_ARFF
+                track:
+                  type: array
+                  description: track ids, e.g. 12
+                  items:
+                    type: integer
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                      - result
+                      - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+                    description: ARFF representation of the tracks
+#
+#
+#
+  /post/MODELS_ADD:
+    post:
+      tags:
+        - post
+      summary: MODELS_ADD request
+      operationId: MODELS_ADD
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - request
+                - track
+#                - param2
+                - field
+                - method
+              properties:
+                request:
+                  type: string
+                  default: MODELS_ADD
+                track:
+                  type: array
+                  description: training set track ids, e.g. 12
+                  items:
+                    type: integer
+                param2:
+                  type: array
+                  description: validation set track ids, e.g. 12
+                  items:
+                    type: integer
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+                method:
+                  type: array
+                  description: ML method name
+                  items:
+                    type: string
+#                    default: RANDOM_FOREST
+                    enum:
+                      - RANDOM_FOREST
+                      - NAIVE_BAYES
+                      - DECISION_TREE
+        required: true
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    default: result
+                    enum:
+                      - result
+                      - error
+                  error:
+                    type: array
+                    items:
+                      type: string
+                  result:
+                    type: string
+                    default: ''
+  #
+  #
+  #
+#  /post/MODELS_REMOVE:
+#    post:
+#      tags:
+#        - post
+#      summary: MODELS_REMOVE request
+#      operationId: MODELS_REMOVE
+#      requestBody:
+#        content:
+#          application/x-www-form-urlencoded:
+#            schema:
+#              required:
+#                - request
+#                - model
+#              properties:
+#                request:
+#                  type: string
+#                  default: MODELS_REMOVE
+#                model:
+#                  type: array
+#                  description: model ids, e.g. 12
+#                  items:
+#                    type: integer
+#        required: true
+#      responses:
+#        200:
+#          description: successful operation
+#          content:
+#            'application/json':
+#              schema:
+#                type: object
+#                properties:
+#                  status:
+#                    type: string
+#                    default: result
+#                    enum:
+#                      - result
+#                      - error
+#                  error:
+#                    type: array
+#                    items:
+#                      type: string
+#                  result:
+#                    type: string
+#                    default: ""
+##
+  /j2/tracks:
+    get:
+      tags:
+      - j2
+      summary: list tracks
+      operationId: tracks
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+#
+  /j2/models:
+    get:
+      tags:
+      - j2
+      summary: list models
+      operationId: models
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+#
+  /j2/ext:
+    get:
+      tags:
+      - j2
+      summary: list extentions
+      operationId: ext
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+#
+  /j2/fields:
+    get:
+      tags:
+      - j2
+      summary: list fields
+      operationId: fields
+      responses:
+        200:
+          description: successful operation
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+#
+#
+#
+#
+  /xa1:
+    post:
+      tags:
+      - web
+      summary: Add ML model request (train)
+      operationId: web-MODELS_ADD
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - page
+                - request
+                - track
+                #                - param2
+                - field
+                - method
+              properties:
+                page:
+                  type: string
+                  default: modelist
+                request:
+                  type: string
+                  default: create
+                track:
+                  type: array
+                  description: training set track ids, e.g. 12
+                  items:
+                    type: integer
+                param2:
+                  type: array
+                  description: validation set track ids, e.g. 12
+                  items:
+                    type: integer
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+                method:
+                  type: array
+                  description: ML method name
+                  items:
+                    type: string
+                    enum:
+                      - RANDOM_FOREST
+                      - NAIVE_BAYES
+                      - DECISION_TREE
+        required: true
+      responses:
+        302:
+          description: successful operation
+  /xa2:
+    post:
+      tags:
+      - web
+      summary: Add postprocessing to fields
+      operationId: web-postproc
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - page
+                - request
+                - field
+              properties:
+                page:
+                  type: string
+                  default: postproc
+                request:
+                  type: string
+                  default: create
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        302:
+          description: successful operation
+  /xa3:
+    post:
+      tags:
+      - web
+      summary: Add scaled version of a field (in range 0 to 1)
+      operationId: web-norm
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - page
+                - request
+                - track
+                - field
+              properties:
+                page:
+                  type: string
+                  default: scale
+                request:
+                  type: string
+                  default: create
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+                track:
+                  type: array
+                  description: training set track ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        302:
+          description: successful operation
+  /xa4:
+    post:
+      tags:
+      - web
+      summary: Show track data (csv)
+      operationId: web-norm
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - page
+                - request
+                - track
+                - field
+              properties:
+                page:
+                  type: string
+                  default: scale
+                request:
+                  type: string
+                  default: create
+                field:
+                  type: array
+                  description: field ids, e.g. 12
+                  items:
+                    type: integer
+                track:
+                  type: array
+                  description: training set track ids, e.g. 12
+                  items:
+                    type: integer
+        required: true
+      responses:
+        302:
+          description: successful operation
+
+components: {}

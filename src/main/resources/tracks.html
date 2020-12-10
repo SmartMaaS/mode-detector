@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/mynav.css">
+<!--    <link rel="stylesheet" type="text/css" href="/static/notifications.css">-->
+</head>
+<body>
+
+<!--<div class="topnav" id="my-nav"></div>-->
+<h2 id="page-title">GPS tracks</h2>
+<!--<div slyle="vertical-align:top;">-->
+<div id="main" style="display:inline-block; vertical-align:top; padding=15px;">
+    <ul id="link-list">
+        <li><a href="/?page=gps">Show tracks</a></li>
+<!--        <li><a href="/?page=gps&request=select-export">Export tracks...</a></li>-->
+<!--        <li><a href="/?page=gps&request=select-export-flat">Export tracks (flat)...</a></li>-->
+        <li><a href="/?page=gps&request=select-evaluate">Select tracks...</a></li>
+<!--        <li><a href="/?page=gps&request=list-load">Load tracks...</a></li>-->
+<!--        <li><a href="/?page=gps&request=list-save">Save tracks...</a></li>-->
+<!--        <li><a href="/?page=gps&request=list-delete">Delete tracks...</a></li>-->
+<!--        <li><a href="/?page=gps&request=list-stat">Tracks statistics...</a></li>-->
+    </ul>
+
+    <form id='fu' class="box" method="post" action="/?page=gps&request=upload" enctype="multipart/form-data">
+        <input type="file" name='file' multiple />
+        <!--<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />-->
+        <!--<input type="file" name='files' />-->
+        <input type="submit" value="Upload">
+        <!--https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections-->
+        <!--https://en.wikipedia.org/wiki/URL_redirection-->
+    </form>
+</div><!-- style.display = "block"; style.display = "none"; inline-block -->
+<div id="fs" style="display:none;">
+    Select tracks
+<!--    <h2 id="fs-header">Select tracks</h2>-->
+    <form method="get" action="">
+        <table>
+            <tr><td>
+                <select id="fs-track" name="track" size="35" multiple></select>
+            </td><td style='vertical-align=top;'>
+<!--        <input id='fs-request' type="hidden" name="request" value="export">-->
+                <input type="hidden" name="page" value="gps">
+                <input type="submit" name="request" value="delete" style="margin:1em"><br/>
+                <br/>
+                <input type="submit" name="request" value="export" style="margin:1em"><br/>
+                <input type="submit" name="request" value="export-flat" style="margin:1em"><br/>
+                <input type="submit" name="request" value="export-csv" style="margin:1em"><br/>
+                <input type="submit" name="request" value="export-csv-full" style="margin:1em"><br/>
+                <br/>
+                <input type="submit" name="request" value="list-modes" style="margin:1em"><br/>
+                <input type="submit" name="request" value="evaluate" style="margin:1em"><br/>
+            </td></tr></table>
+    </form>
+</div>
+<div id="list" style="display:none;">
+    <!--    <h2>GPS tracks</h2>-->
+    <ul id="gps-list">
+        <li>1</li>
+    </ul>
+</div>
+<!--</div>-->
+
+</body>
+</html>

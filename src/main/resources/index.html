@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/static/mynav.css"/>
+<!--    <link rel="stylesheet" type="text/css" href="/static/notifications.css"/>-->
+    <style></style>
+</head>
+<body>
+
+<h1>t02 mode detector</h1>
+
+<a href="/map?q=0&lat=52.5&lon=13.4"> MAP 0 Berlin</a>  <a href="/map?q=0&lat=49.25&lon=7"> MAP 0 sb</a>
+<br/>
+
+<a href="/map?q=1&lat=52.5&lon=13.4"> MAP 1 Berlin</a>  <a href="/map?q=1&lat=49.25&lon=7"> MAP 1 sb</a>
+<br/>
+
+<a href="/map?q=2&lat=52.5&lon=13.4"> MAP 2 berlin</a> <a href="/map?q=2&lat=49.25&lon=7"> MAP 2 sb</a>
+<br/>
+
+<!--<dl></dl>-->
+<dl>
+    <li><a href="/pos1?lat=52.51057591441102&lon=13.402547836303713"> POS </a></li>
+    <li><a href="/pos2?lat=52.51057591441102&lon=13.402547836303713"> POS </a></li>
+    <li><a href="/post/?request=MAP_TRANSPORT&lat=52.52&lon=13.4"> POS </a></li>
+</dl>
+
+<a href="/post/?request=backup">backup</a>
+<br/>
+<br/>
+
+<a href="/post/?request=restore&param=./input/saves/tracks/all.json">restore tracks</a>
+<br/>
+<br/>
+
+<br/>
+<a href="/post/?request=MODELS_REMOTE_RELOAD">load remote models</a>
+<br/>
+<br/>
+<a href="/post/?request=UTIL_MODEL_PCA">UTIL_MODEL_PCA</a>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<h3>1010</h3>
+<dl>
+    <li>restore 5s: <a href="/post/?request=restore&param=./input/saves/tracks/1010-5s.json.gz">XXXX</a></li>
+    <li>restore 2s: <a href="/post/?request=restore&param=./input/saves/tracks/1010-2s.json.gz">XXXX</a></li>
+<!--    <li>create pca: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=51&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&page=pca&request=create">XXXX</a></li>-->
+    <li>create scaled (aa-train): <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=51&track=0&track=1&track=2&track=3&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&page=scale&request=create">XXXX</a></li>
+    <li>create scaled (c-my): <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=51&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&track=76&track=77&track=78&track=79&track=80&track=81&track=82&track=83&track=84&track=85&track=86&track=87&track=88&track=89&track=90&track=91&track=92&track=93&track=94&track=95&track=96&track=97&track=98&track=99&track=100&track=101&track=102&track=103&track=104&track=105&track=106&track=107&track=108&page=scale&request=create">XXXX</a></li>
+    <li>export flat: <a href="/?track=0&track=1&track=2&track=3&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&track=76&track=77&track=78&track=79&track=80&track=81&track=82&track=83&track=84&track=85&track=86&track=87&track=88&track=89&track=90&track=91&track=92&track=93&track=94&track=95&track=96&track=97&track=98&track=99&track=100&track=101&track=102&track=103&track=104&track=105&track=106&track=107&track=108&track=109&track=110&track=111&track=112&track=113&track=114&track=115&track=116&track=117&track=118&track=119&track=120&track=121&track=122&track=123&track=124&track=125&track=126&page=gps&request=export-flat">XXXX</a></li>
+
+</dl>
+<br/>
+<h3>0924</h3>
+<dl>
+    <li>restore: <a href="/post/?request=restore&param=./input/saves/tracks/0929-all.json.gz">XXXX</a></li>
+    <li>create pca: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=51&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&page=pca&request=create">XXXX</a></li>
+    <li>create scaled: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=51&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&page=scale&request=create">XXXX</a></li>
+    <li>export flat: <a href="/?track=0&track=1&track=2&track=3&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&track=76&track=77&track=78&track=79&track=80&track=81&track=82&track=83&track=84&track=85&track=86&track=87&track=88&track=89&track=90&track=91&track=92&track=93&track=94&track=95&track=96&track=97&track=98&track=99&track=100&track=101&page=gps&request=export-flat">XXXX</a></li>
+</dl>
+<br/>
+<h3>0910</h3>
+<dl>
+    <li>create pca: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&page=pca&request=create">XXXX</a></li>
+    <li>create scaled: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&page=scale&request=create">XXXX</a></li>
+    <li>export flat: <a href="/?track=0&track=1&track=2&track=3&track=4&track=5&track=6&track=7&track=8&track=9&track=10&track=11&track=12&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&track=66&track=67&track=68&track=69&track=70&track=71&track=72&track=73&track=74&track=75&track=76&track=77&track=78&track=79&track=80&track=81&track=82&track=83&track=84&track=85&track=86&track=87&track=88&track=89&track=90&track=91&track=92&track=93&track=94&page=gps&request=export-flat">XXXX</a></li>
+</dl>
+<br/>
+<h3>0909</h3>
+<dl>
+    <li>create pca: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=104&track=105&track=106&track=107&track=108&track=109&track=110&track=111&track=112&track=113&track=114&track=115&track=116&track=117&track=118&track=119&track=120&track=121&track=122&track=123&track=124&track=125&track=126&track=127&track=128&track=129&track=130&track=131&track=132&track=133&track=134&track=135&track=136&track=137&track=138&track=139&track=140&track=141&track=142&track=143&track=144&track=145&track=146&track=147&track=148&track=149&track=150&track=151&track=152&track=153&track=154&track=155&page=pca&request=create">XXXX</a></li>
+    <li>create scaled: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=104&track=105&track=106&track=107&track=108&track=109&track=110&track=111&track=112&track=113&track=114&track=115&track=116&track=117&track=118&track=119&track=120&track=121&track=122&track=123&track=124&track=125&track=126&track=127&track=128&track=129&track=130&track=131&track=132&track=133&track=134&track=135&track=136&track=137&track=138&track=139&track=140&track=141&track=142&track=143&track=144&track=145&track=146&track=147&track=148&track=149&track=150&track=151&track=152&track=153&track=154&track=155&page=scale&request=create">XXXX</a></li>
+    <li>export flat: <a href="/?track=81&track=82&track=83&track=84&track=85&track=86&track=87&track=88&track=89&track=90&track=91&track=92&track=93&track=94&track=95&track=96&track=97&track=98&track=99&track=100&track=101&track=102&track=103&track=104&track=105&track=106&track=107&track=108&track=109&track=110&track=111&track=112&track=113&track=114&track=115&track=116&track=117&track=118&track=119&track=120&track=121&track=122&track=123&track=124&track=125&track=126&track=127&track=128&track=129&track=130&track=131&track=132&track=133&track=134&track=135&track=136&track=137&track=138&track=139&track=140&track=141&track=142&track=143&track=144&track=145&track=146&track=147&track=148&track=149&track=150&track=151&track=152&track=153&track=154&track=155&track=156&track=157&track=158&track=159&track=160&track=161&track=162&track=163&track=164&track=165&track=166&track=167&track=168&track=169&track=170&track=171&track=172&track=173&track=174&page=gps&request=export-flat">XXXX</a></li>
+</dl>
+<br/>
+<h3>0908</h3>
+<dl>
+    <li>create pca: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&page=pca&request=create">XXXX</a></li>
+    <li>create scaled: <a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&field=48&field=49&field=50&field=51&field=52&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&track=39&track=40&track=41&track=42&track=43&track=44&track=45&track=46&track=47&track=48&track=49&track=50&track=51&track=52&track=53&track=54&track=55&track=56&track=57&track=58&track=59&track=60&track=61&track=62&track=63&track=64&track=65&page=scale&request=create">XXXX</a></li>
+</dl>
+
+<h3>0822</h3>
+<!--<a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&page=pca&request=create">create pca</a>-->
+<a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&page=pca&request=create">create pca</a>
+<br/>
+<!--<a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&page=scale&request=create">create normalize</a>-->
+<a href="/?field=3&field=4&field=7&field=8&field=9&field=10&field=11&field=12&field=13&field=14&field=15&field=16&field=17&field=18&field=19&field=20&field=21&field=22&field=23&field=24&field=25&field=26&field=27&field=28&field=29&field=30&field=31&field=32&field=33&field=34&field=35&field=36&field=37&field=38&field=39&field=40&field=41&field=42&field=43&field=44&field=45&field=46&field=47&track=13&track=14&track=15&track=16&track=17&track=18&track=19&track=20&track=21&track=22&track=23&track=24&track=25&track=26&track=27&track=28&track=29&track=30&track=31&track=32&track=33&track=34&track=35&track=36&track=37&track=38&page=scale&request=create">create normalize</a>
+<br/>
+<br/>
+<br/>
+
+<h2>Load GPS tracks (json/gpx)</h2>
+
+<!--<div id="osm"></div>-->
+
+
+<form class="box" method="post" action="/?page=gps&request=upload" enctype="multipart/form-data">
+    <input type="file" name='file' multiple />
+    <!--<input type="hidden" name="MAX_FILE_SIZE" value="4194304" />-->
+    <!--<input type="file" name='files' />-->
+    <input type="submit" value="Upload">
+    <!--https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections-->
+    <!--https://en.wikipedia.org/wiki/URL_redirection-->
+</form>
+
+
+
+</body>
+</html>
