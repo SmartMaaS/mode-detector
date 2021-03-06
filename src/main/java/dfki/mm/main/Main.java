@@ -63,7 +63,7 @@ public class Main {
     private static void loadMaps() {
         log.info("Loading osm data");
         for (String mapPath : Configuration.INSTANCE.mapsToLoad) {
-            DataHolder.INSTANCE.mapData.updateMap(mapPath);
+//            DataHolder.INSTANCE.mapData.updateMap(mapPath);
         }
 //        DataHolder.INSTANCE.updateMap("input/berlin-csv-0604/berlin-%s-%s-0604.csv.gz");
 //        DataHolder.INSTANCE.updateMap("input/saarland-csv-0604/saarland-%s-%s-0604.csv.gz");

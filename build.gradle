@@ -18,15 +18,17 @@ repositories {
 def slf4j_version = '1.7.30'
 def jetty_version = '9.4.+'
 def osmosis_version = '0.48.+'
-
+def rdf4j_version = "3.5.0"
 configurations {
     compile.exclude group: 'com.sun.media'
 }
 
 dependencies {
+    implementation 'org.eclipse.rdf4j:rdf4j-rio-turtle:' + rdf4j_version
+
     implementation 'org.slf4j:slf4j-api:' + slf4j_version
     implementation 'org.slf4j:slf4j-simple:' + slf4j_version
-    
+
     implementation 'org.openstreetmap.osmosis:osmosis-core:' + osmosis_version
     implementation 'org.openstreetmap.osmosis:osmosis-pbf:' + osmosis_version
     implementation 'org.openstreetmap.osmosis:osmosis-xml:' + osmosis_version
