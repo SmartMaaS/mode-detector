@@ -101,7 +101,7 @@ public enum RemoteModelManagerHttp {
         return request(url, null, null);
     }
 
-    private String request(String url, Map<String,String> params, ContentProvider content) throws InterruptedException, ExecutionException, TimeoutException {
+    private String request(String url, Map<String, String> params, ContentProvider content) throws InterruptedException, ExecutionException, TimeoutException {
         if (params == null) {
             params = Collections.emptyMap();
         }
